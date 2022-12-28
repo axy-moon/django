@@ -1,0 +1,40 @@
+select empname,address from emp inner join dept on emp.deptcode=dept.deptcode;
+select * from emp;
+
+insert into dept values('D111','Testing');
+insert into dept values('D222','');
+insert into emp values('E114','Akshaya','Ernakulam',22,'D954');
+select * from emp;
+select * from dept right outer join emp on dept.deptcode = emp.deptcode;
+select * from emp right outer join dept on emp.deptcode = dept.deptcode;
+select * from emp full outer join dept on emp.deptcode = dept.deptcode;
+
+
+create table students( rollno varchar(7) primary key,
+                      sname varchar(30),
+                      dept varchar(20)
+                      
+);
+
+create table depts (dept varchar(20) primary key,
+                    hod varchar(20)
+);
+
+insert into students values('22MX102','Akshaya','MCA');
+insert into students values('22FT102','Ramya','FT');
+insert into students values('22MX112','Sneha','MCA');
+insert into students values('22MX160','John','Mech');
+insert into students values('22CV221','Mike','Civil');
+
+
+insert into depts values('MCA','CR');
+insert into depts values('FT','MA');
+insert into depts values('Mech','RW');
+insert into depts values('AM','PM');
+
+select * from students LEFT JOIN depts on students.dept = depts.dept where depts.dept is NULL; 
+select * from students CROSS JOIN depts;
+select * from students;
+
+create view stu as select sname from students;
+select * from stu;
